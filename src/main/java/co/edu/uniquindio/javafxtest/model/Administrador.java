@@ -2,8 +2,8 @@ package co.edu.uniquindio.javafxtest.model;
 
 public class Administrador extends Usuario {
 
-    public Administrador(String usuario, String clave, String nombre, String documento, String email, String telefono){
-        super(usuario, clave, nombre, documento, email, telefono);
+    public Administrador(String nombre, String documento, String email, String telefono){
+        super(nombre, documento, email, telefono);
     }
 
     @Override

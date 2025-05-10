@@ -1,5 +1,7 @@
 package co.edu.uniquindio.javafxtest.model;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Medico extends Usuario {
@@ -7,9 +9,9 @@ public class Medico extends Usuario {
 
     private static LinkedList<Horario> horarios;
 
-    public Medico(String usuario, String clave, String nombre, String documento, String email, String telefono,
+    public Medico(String nombre, String documento, String email, String telefono,
                   Especialidades especialidad) {
-        super(usuario,clave,nombre, documento, email, telefono);
+        super(nombre, documento, email, telefono);
         this.especialidad = especialidad;
         horarios = new LinkedList<>();
     }
@@ -41,6 +43,5 @@ public class Medico extends Usuario {
     public static void setHorarios(LinkedList<Horario> horarios) {
         Medico.horarios = horarios;
     }
-
 
 }

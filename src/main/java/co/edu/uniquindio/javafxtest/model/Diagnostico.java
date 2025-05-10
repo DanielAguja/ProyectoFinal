@@ -13,6 +13,15 @@ public Diagnostico(LocalDate fecha, String observacion, String tratamiento) {
     this.tratamiento = tratamiento;
 }
 
+    @Override
+    public String toString() {
+        return "Diagnostico{" +
+                "fecha=" + fecha +
+                ", observacion='" + observacion + '\'' +
+                ", tratamiento='" + tratamiento + '\'' +
+                '}';
+    }
+
     public LocalDate getFecha() {
         return fecha;
     }

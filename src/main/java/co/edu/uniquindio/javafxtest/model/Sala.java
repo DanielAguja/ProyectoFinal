@@ -1,6 +1,6 @@
 package co.edu.uniquindio.javafxtest.model;
 
-public class Sala {
+abstract class Sala {
     private int numeroSala;
 
     public Sala(int numeroSala) {
@@ -15,4 +15,10 @@ public class Sala {
         this.numeroSala = numeroSala;
     }
 
+    @Override
+    public String toString() {
+        return "Sala{" +
+                "numeroSala=" + numeroSala +
+                '}';
+    }
 }

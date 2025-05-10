@@ -1,10 +1,13 @@
 package co.edu.uniquindio.javafxtest.model;
 
-public class Historial {
-    private Diagnostico diagnostico;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
-    public Historial(Diagnostico diagnostico) {
-        this.diagnostico = diagnostico;
+public class Historial {
+    private LinkedList<Diagnostico> diagnostico;
+
+    public Historial() {
+       diagnostico = new LinkedList<>();
     }
 
     @Override
@@ -14,11 +17,15 @@ public class Historial {
                 '}';
     }
 
-    public Diagnostico getDiagnostico() {
+    public LinkedList<Diagnostico> getDiagnostico() {
         return diagnostico;
     }
 
-    public void setDiagnostico(Diagnostico diagnostico) {
+    public void setDiagnostico(LinkedList<Diagnostico> diagnostico) {
         this.diagnostico = diagnostico;
+    }
+
+    public static void agregarDiagnostico(Diagnostico diagnostico) {
+        this.diagnostico.add(diagnostico);
     }
 }

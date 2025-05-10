@@ -1,6 +1,7 @@
 module co.edu.uniquindio.javafxtest {
     requires javafx.controls;
     requires javafx.fxml;
+    requires jdk.compiler;
 
 
     opens co.edu.uniquindio.javafxtest to javafx.fxml;

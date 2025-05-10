@@ -1,16 +1,12 @@
 package co.edu.uniquindio.javafxtest.model;
 
 public class Usuario {
-    protected String usuario;
-    protected String clave;
     protected String nombre;
     protected String documento;
     protected String email;
     protected String telefono;
 
-    public Usuario(String usuario, String clave, String nombre, String documento, String email, String telefono) {
-        this.usuario = usuario;
-        this.clave = clave;
+    public Usuario(String nombre, String documento, String email, String telefono) {
         this.nombre = nombre;
         this.documento = documento;
         this.email = email;
@@ -47,21 +43,5 @@ public class Usuario {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 }
