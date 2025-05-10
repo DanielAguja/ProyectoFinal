@@ -1,6 +1,4 @@
-package co.edu.uniquindio.javafxtest;
-
-import co.edu.uniquindio.Diagnostico;
+package co.edu.uniquindio.javafxtest.model;
 
 public class Historial {
     private Diagnostico diagnostico;

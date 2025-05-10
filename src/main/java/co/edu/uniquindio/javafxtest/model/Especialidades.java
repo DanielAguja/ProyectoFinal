@@ -1,4 +1,4 @@
-package co.edu.uniquindio.javafxtest;
+package co.edu.uniquindio.javafxtest.model;
 
 public enum Especialidades {
     CARDIOLOGIA,

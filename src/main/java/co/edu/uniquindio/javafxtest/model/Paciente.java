@@ -1,10 +1,10 @@
-package co.edu.uniquindio.javafxtest;
+package co.edu.uniquindio.javafxtest.model;
 
 public class Paciente extends Usuario{
     private Historial historial;
 
-    public Paciente(String nombre, String documento, String email, String telefono, Historial historial) {
-        super(nombre, documento, email, telefono);
+    public Paciente(String usuario, String clave, String nombre, String documento, String email, String telefono, Historial historial) {
+        super(usuario, clave, nombre, documento, email, telefono);
         this.historial = historial;
     }
 

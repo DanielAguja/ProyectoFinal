@@ -1,14 +1,17 @@
-package co.edu.uniquindio.javafxtest;
+package co.edu.uniquindio.javafxtest.model;
+
+import java.util.LinkedList;
 
 public class Medico extends Usuario {
     private Especialidades especialidad;
-    private List<Horarios> horarios;
 
-    public Medico(String nombre, String documento, String email, String telefono,
-                  Especialidades especialidad, List<Horarios> horarios) {
-        super(nombre, documento, email, telefono);
+    private static LinkedList<Horario> horarios;
+
+    public Medico(String usuario, String clave, String nombre, String documento, String email, String telefono,
+                  Especialidades especialidad) {
+        super(usuario,clave,nombre, documento, email, telefono);
         this.especialidad = especialidad;
-        this.horarios = horarios;
+        horarios = new LinkedList<>();
     }
 
     @Override
@@ -31,11 +34,13 @@ public class Medico extends Usuario {
         this.especialidad = especialidad;
     }
 
-    public List<Horarios> getHorarios() {
+    public static LinkedList<Horario> getHorarios() {
         return horarios;
     }
 
-    public void setHorarios(List<Horarios> horarios) {
-        this.horarios = horarios;
+    public static void setHorarios(LinkedList<Horario> horarios) {
+        Medico.horarios = horarios;
     }
+
+
 }

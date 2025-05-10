@@ -1,4 +1,4 @@
-package co.edu.uniquindio.javafxtest;
+package co.edu.uniquindio.javafxtest.model;
 
 import java.time.LocalDate;
 
@@ -6,9 +6,10 @@ public class Horario {
     private LocalDate fechaDia;
     private String horaInicio;
     private String horaFin;
-    private Salas sala;
+    private Sala sala;
 
-    public Horario(LocalDate fecha, String horaInicio, String horaFin, Salas sala) {
+    public Horario(LocalDate fecha, String horaInicio,
+                   String horaFin, Sala sala) {
         this.fechaDia = fecha;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
@@ -49,11 +50,11 @@ public class Horario {
         this.horaFin = horaFin;
     }
 
-    public Salas getSala() {
+    public Sala getSala() {
         return sala;
     }
 
-    public void setSala(Salas sala) {
+    public void setSala(Sala sala) {
         this.sala = sala;
     }
 }
