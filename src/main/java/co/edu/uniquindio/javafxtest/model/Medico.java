@@ -43,5 +43,4 @@ public class Medico extends Usuario {
     public static void setHorarios(LinkedList<Horario> horarios) {
         Medico.horarios = horarios;
     }
-
 }

@@ -1,17 +1,20 @@
 package co.edu.uniquindio.javafxtest.model;
 
-public class Paciente extends Usuario{
-    private Historial historial;
+import jdk.jshell.Diag;
 
-    public Paciente(String nombre, String documento, String email, String telefono, Historial historial) {
+import java.util.LinkedList;
+
+public class Paciente extends Usuario{
+    private static LinkedList<Diagnostico> historialP;
+
+    public Paciente(String nombre, String documento, String email, String telefono) {
         super(nombre, documento, email, telefono);
-        this.historial = historial;
+       historialP = new LinkedList<>();
     }
 
     @Override
     public String toString() {
         return "Paciente{" +
-                "historial=" + historial +
                 ", nombre='" + nombre + '\'' +
                 ", documento='" + documento + '\'' +
                 ", email='" + email + '\'' +
@@ -19,12 +22,18 @@ public class Paciente extends Usuario{
                 '}';
     }
 
-    public Historial getHistorial() {
-        return historial;
+    public static LinkedList<Diagnostico> getHistorial() {
+        return historialP;
     }
 
-    public void setHistorial(Historial historial) {
-        this.historial = historial;
+    public static void setHistorial(LinkedList<Diagnostico> historial) {
+        Paciente.historialP = historial;
     }
+
+    public static void agregarHistorial(Diagnostico diagnostico) {
+        Paciente.historialP.add(diagnostico);
+    }
+
+
 }
 

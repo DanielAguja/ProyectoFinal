@@ -2,7 +2,7 @@ package co.edu.uniquindio.javafxtest.model;
 
 public class Usuario {
     protected String nombre;
-    protected String documento;
+    protected static String documento;
     protected String email;
     protected String telefono;
 
@@ -13,6 +13,7 @@ public class Usuario {
         this.telefono = telefono;
     }
 
+
     public String getNombre() {
         return nombre;
     }
@@ -21,7 +22,7 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getDocumento() {
+    public static String getDocumento() {
         return documento;
     }
 

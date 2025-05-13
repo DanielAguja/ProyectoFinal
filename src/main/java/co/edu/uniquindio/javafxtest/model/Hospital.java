@@ -1,12 +1,11 @@
 package co.edu.uniquindio.javafxtest.model;
 
-import com.sun.source.tree.BreakTree;
+import jdk.jshell.Diag;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
-abstract class Hospital {
+public class Hospital {
     private String nombre;
     private String nit;
 
@@ -14,12 +13,20 @@ abstract class Hospital {
     private LinkedList<Medico> listmedicos;
     private LinkedList<Administrador> listadministradores;
 
-    Hospital(String nombre, String nit) {
+    public Hospital(String nombre, String nit) {
         this.nombre = nombre;
         this.nit = nit;
         listpacientes = new LinkedList<>();
         listmedicos = new LinkedList<>();
         listadministradores = new LinkedList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Hospital{" +
+                "nit='" + nit + '\'' +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 
     public String getNombre() {
@@ -63,14 +70,14 @@ abstract class Hospital {
     }
 
     public LinkedList<Paciente> crearPaciente(String nombre, String documento, String email,
-    String telefono, Historial historial) {
-        Paciente newpaciente = new Paciente(nombre, documento, email, telefono, historial);
+    String telefono) {
+        Paciente newpaciente = new Paciente(nombre, documento, email, telefono);
         listpacientes.add(newpaciente);
         return listpacientes;
     }
 
     public LinkedList<Administrador> crearAdmin(String nombre, String documento, String email,
-                                              String telefono, Historial historial) {
+                                              String telefono) {
         Administrador newadmin = new Administrador(nombre, documento, email, telefono);
         listadministradores.add(newadmin);
         return listadministradores;
@@ -83,11 +90,30 @@ abstract class Hospital {
         return listmedicos;
     }
 
-    public void generarDiagnostico(LocalDate fecha, String observacion, String tratamiento) {
+    public boolean generarDiagnostico(String documento, LocalDate fecha, String observacion, String tratamiento) {
+        boolean flag = false;
         Diagnostico diagnostico = null;
         Diagnostico newdiagnostico = new Diagnostico(fecha, observacion, tratamiento);
         diagnostico = newdiagnostico;
-        Historial.agregarDiagnostico(diagnostico);
+        for (Paciente paciente : listpacientes) {
+            if(Paciente.getDocumento().equals(documento)) {
+                Paciente.agregarHistorial(diagnostico);
+            }
+            else {break;}
+        }
+        return flag;
     }
+
+    public LinkedList<Diagnostico> mostrarHistorial(String documento){
+        LinkedList<Diagnostico> chichotas = null;
+        for (Paciente paciente : listpacientes) {
+            if(Paciente.getDocumento().equals(documento)) {
+                chichotas = Paciente.getHistorial();
+            }
+        }
+        return chichotas;
+    }
+
+
 
 }
