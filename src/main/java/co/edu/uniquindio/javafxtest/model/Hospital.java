@@ -150,16 +150,16 @@ public class Hospital {
     }
 
 
-    public boolean crearSala(int numeroSala){
+    public boolean crearSala(int numeroSala, EstadoSala estadoSala){
         boolean flag = false;
-        Sala nuevaSala = new Sala(numeroSala);
+        Sala nuevaSala = new Sala(numeroSala, estadoSala);
         listsalas.add(nuevaSala);
         return flag;
     }
 
-    public boolean solicitudCita(String idPaciente, String nombreMedico,
+    public boolean solicitudCita(String idPaciente, Especialidades especialidad, String nombreMedico,
                                  int numeroCita, LocalDate fecha, String hora){
-        Cita nuevaCita = new Cita(numeroCita, fecha, hora);
+        Cita nuevaCita = new Cita(numeroCita, especialidad , fecha, hora);
         listCitas.add(nuevaCita);
 
         boolean flag = false;
@@ -167,6 +167,7 @@ public class Hospital {
         for (Paciente paciente : listpacientes){
             if (Paciente.getDocumento().equals(idPaciente)) {
                 Cita.agregarPaciente(paciente);
+                Paciente.agregarCita(nuevaCita);
             }
             else {
                 break;
@@ -182,6 +183,17 @@ public class Hospital {
             }
         }
 
+        return flag;
+    }
+
+    public boolean cancelarCita(int numeroCita){
+        boolean flag = false;
+
+        for (Cita cita : listCitas){
+            if (cita.getNumeroCita() == numeroCita){
+                listCitas.remove(cita);
+            }
+        }
         return flag;
     }
 }

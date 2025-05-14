@@ -7,17 +7,21 @@ public class Cita {
     private int numeroCita;
     private LocalDate fecha;
     private String hora;
+    private Especialidades especialidad;
 
     private static LinkedList<Medico> medicoCita;
     private static LinkedList<Paciente> pacienteCita;
+    private static LinkedList<Sala> salaCita;
 
-    public Cita(int numeroCita, LocalDate fecha, String hora) {
+    public Cita(int numeroCita, Especialidades especialidad, LocalDate fecha, String hora) {
         this.numeroCita = numeroCita;
+        this.especialidad = especialidad;
         this.fecha = fecha;
         this.hora = hora;
 
         medicoCita = new LinkedList<>();
         pacienteCita = new LinkedList<>();
+        salaCita = new LinkedList<>();
     }
 
     @Override
@@ -65,6 +69,38 @@ public class Cita {
 
     public LinkedList<Paciente> getPaciente() {
         return pacienteCita;
+    }
+
+    public static LinkedList<Medico> getMedicoCita() {
+        return medicoCita;
+    }
+
+    public static void setMedicoCita(LinkedList<Medico> medicoCita) {
+        Cita.medicoCita = medicoCita;
+    }
+
+    public Especialidades getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(Especialidades especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public static LinkedList<Paciente> getPacienteCita() {
+        return pacienteCita;
+    }
+
+    public static void setPacienteCita(LinkedList<Paciente> pacienteCita) {
+        Cita.pacienteCita = pacienteCita;
+    }
+
+    public static LinkedList<Sala> getSalaCita() {
+        return salaCita;
+    }
+
+    public static void setSalaCita(LinkedList<Sala> salaCita) {
+        Cita.salaCita = salaCita;
     }
 
     public void setPaciente(LinkedList<Paciente> paciente) {

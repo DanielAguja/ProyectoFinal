@@ -1,6 +1,6 @@
 package co.edu.uniquindio.javafxtest.model;
 
-public class Usuario {
+abstract class Usuario {
     protected static String nombre;
     protected static String documento;
     protected static String email;

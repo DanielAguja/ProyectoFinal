@@ -5,11 +5,15 @@ import jdk.jshell.Diag;
 import java.util.LinkedList;
 
 public class Paciente extends Usuario{
+
     private static LinkedList<Diagnostico> historialP;
+    private static LinkedList<Cita> citaP;
+
 
     public Paciente(String nombre, String documento, String email, String telefono) {
         super(nombre, documento, email, telefono);
        historialP = new LinkedList<>();
+       citaP = new LinkedList<>();
     }
 
     @Override
@@ -34,6 +38,8 @@ public class Paciente extends Usuario{
         Paciente.historialP.add(diagnostico);
     }
 
-
+    public static void agregarCita(Cita cita){
+        citaP.add(cita);
+    }
 }
 

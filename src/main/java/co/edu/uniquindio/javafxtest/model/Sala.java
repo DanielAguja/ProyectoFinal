@@ -4,12 +4,13 @@ import java.util.LinkedList;
 
 class Sala {
     private int numeroSala;
+    private EstadoSala estadoSala;
 
     private LinkedList<Medico> medicoSala;
     private LinkedList<Paciente> pacienteSala;
 
-    public Sala(int numeroSala) {
-
+    public Sala(int numeroSala, EstadoSala estadoSala) {
+        this.estadoSala = estadoSala;
         this.numeroSala = numeroSala;
         medicoSala = new LinkedList<>();
         pacienteSala = new LinkedList<>();
@@ -39,14 +40,25 @@ class Sala {
         this.pacienteSala = pacienteSala;
     }
 
+    public EstadoSala getEstadoSala() {
+        return estadoSala;
+    }
+
+    public void setEstadoSala(EstadoSala estadoSala) {
+        this.estadoSala = estadoSala;
+    }
+
     @Override
     public String toString() {
         return "Sala{" +
                 "numeroSala=" + numeroSala +
+                ", estadoSala=" + estadoSala +
+                ", medicoSala=" + medicoSala +
+                ", pacienteSala=" + pacienteSala +
                 '}';
     }
 
-//    public agregarPaciente()
+    //    public agregarPaciente()
 //
 //    public agregarMedico()
 }
