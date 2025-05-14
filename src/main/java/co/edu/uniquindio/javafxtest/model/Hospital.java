@@ -9,6 +9,8 @@ public class Hospital {
     private String nombre;
     private String nit;
 
+    private LinkedList<Cita> listCitas;
+    private LinkedList<Sala> listsalas;
     private LinkedList<Paciente> listpacientes;
     private LinkedList<Medico> listmedicos;
     private LinkedList<Administrador> listadministradores;
@@ -45,6 +47,22 @@ public class Hospital {
         this.nit = nit;
     }
 
+    public LinkedList<Cita> getListCitas() {
+        return listCitas;
+    }
+
+    public void setListCitas(LinkedList<Cita> listCitas) {
+        this.listCitas = listCitas;
+    }
+
+    public LinkedList<Sala> getListsalas() {
+        return listsalas;
+    }
+
+    public void setListsalas(LinkedList<Sala> listsalas) {
+        this.listsalas = listsalas;
+    }
+
     public LinkedList<Paciente> getListpacientes() {
         return listpacientes;
     }
@@ -74,6 +92,23 @@ public class Hospital {
         Paciente newpaciente = new Paciente(nombre, documento, email, telefono);
         listpacientes.add(newpaciente);
         return listpacientes;
+    }
+
+    public boolean actualizarDatosPaciente(String documentoBuscar,
+                                                        String nombre, String documento,
+                                                        String email,
+                                                        String telefono){
+        boolean flag = false;
+
+        for(Paciente paciente : listpacientes){
+            if (Paciente.getDocumento().equals(documentoBuscar)){
+                paciente.setNombre(nombre);
+                paciente.setDocumento(documento);
+                paciente.setEmail(email);
+                paciente.setTelefono(telefono);
+            }
+        }
+        return flag;
     }
 
     public LinkedList<Administrador> crearAdmin(String nombre, String documento, String email,
@@ -115,5 +150,38 @@ public class Hospital {
     }
 
 
+    public boolean crearSala(int numeroSala){
+        boolean flag = false;
+        Sala nuevaSala = new Sala(numeroSala);
+        listsalas.add(nuevaSala);
+        return flag;
+    }
 
+    public boolean solicitudCita(String idPaciente, String nombreMedico,
+                                 int numeroCita, LocalDate fecha, String hora){
+        Cita nuevaCita = new Cita(numeroCita, fecha, hora);
+        listCitas.add(nuevaCita);
+
+        boolean flag = false;
+
+        for (Paciente paciente : listpacientes){
+            if (Paciente.getDocumento().equals(idPaciente)) {
+                Cita.agregarPaciente(paciente);
+            }
+            else {
+                break;
+            }
+        }
+
+        for (Medico medico : listmedicos){
+            if (Medico.getNombre().equals(nombreMedico)){
+                Cita.agregarMedico(medico);
+            }
+            else {
+                break;
+            }
+        }
+
+        return flag;
+    }
 }

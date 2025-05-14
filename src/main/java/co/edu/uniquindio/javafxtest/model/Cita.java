@@ -1,19 +1,23 @@
 package co.edu.uniquindio.javafxtest.model;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 public class Cita {
     private int numeroCita;
     private LocalDate fecha;
     private String hora;
-    private Medico medico;
-    private Paciente paciente;
 
-    public Cita(int numeroCita, LocalDate fecha, String hora, Medico medico) {
+    private static LinkedList<Medico> medicoCita;
+    private static LinkedList<Paciente> pacienteCita;
+
+    public Cita(int numeroCita, LocalDate fecha, String hora) {
         this.numeroCita = numeroCita;
         this.fecha = fecha;
         this.hora = hora;
-        this.medico = medico;
+
+        medicoCita = new LinkedList<>();
+        pacienteCita = new LinkedList<>();
     }
 
     @Override
@@ -22,8 +26,8 @@ public class Cita {
                 "numeroCita=" + numeroCita +
                 ", fecha=" + fecha +
                 ", hora='" + hora + '\'' +
-                ", medico=" + medico +
-                ", paciente=" + paciente +
+                ", medico=" + medicoCita +
+                ", paciente=" + pacienteCita +
                 '}';
     }
 
@@ -51,19 +55,28 @@ public class Cita {
         this.hora = hora;
     }
 
-    public Medico getMedico() {
-        return medico;
+    public LinkedList<Medico> getMedico() {
+        return medicoCita;
     }
 
-    public void setMedico(Medico medico) {
-        this.medico = medico;
+    public void setMedico(LinkedList<Medico> medico) {
+        this.medicoCita = medico;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
+    public LinkedList<Paciente> getPaciente() {
+        return pacienteCita;
     }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+    public void setPaciente(LinkedList<Paciente> paciente) {
+        this.pacienteCita = paciente;
     }
+
+    public static void agregarPaciente(Paciente paciente){
+        pacienteCita.add(paciente);
+    }
+
+    public static void agregarMedico(Medico medico){
+        medicoCita.add(medico);
+    }
+
 }
