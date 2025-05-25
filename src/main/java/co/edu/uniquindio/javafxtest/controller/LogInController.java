@@ -1,5 +1,10 @@
 package co.edu.uniquindio.javafxtest.controller;
 
+import co.edu.uniquindio.javafxtest.model.Hospital;
+import co.edu.uniquindio.javafxtest.model.Administrador;
+import co.edu.uniquindio.javafxtest.model.Medico;
+import co.edu.uniquindio.javafxtest.model.Paciente;
+import co.edu.uniquindio.javafxtest.model.Usuario;
 import co.edu.uniquindio.javafxtest.viewController.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,8 +15,13 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class LogInController {
+
+    Hospital hospital = new Hospital("Santander", "12312321");
+
+    LinkedList<Paciente> paciente = hospital.crearPaciente("Juan", "123", "juanitoGod@gmail.com", "123123213");
 
     public LogInController() {
 
@@ -35,20 +45,41 @@ public class LogInController {
 
     private void checkLogin() throws IOException {
 
-        Main m = new Main();
-        if(usuario.getText().equals("sexo") && password.getText().equals("123")){
-            wrongLogIn.setText("Success");
+        String nombreIngresado = usuario.getText();
+        String documentoIngresado = password.getText();
+
+        // Si los campos están vacíos, manejarlo primero
+        if (nombreIngresado.isEmpty() || documentoIngresado.isEmpty()) {
+            wrongLogIn.setText("Por favor, ingresa tu Nombre y ID");
+            return;
+        }
+
+        Usuario usuarioEncontrado = hospital.buscarUsuario(nombreIngresado, documentoIngresado);
+
+        if (usuarioEncontrado != null) {
+            Main m = new Main();
+            wrongLogIn.setText("Inicio de sesión exitoso");
 
             m.changeScene("/co/edu/uniquindio/javafxtest/afterLogin.fxml");
+
+        } else {
+            wrongLogIn.setText("Nombre de usuario o ID incorrectos");
         }
 
-        else if(usuario.getText().isEmpty() && password.getText().isEmpty()){
-            wrongLogIn.setText("Please enter your Data");
-        }
-
-        else{
-            wrongLogIn.setText("Wrong Username or Password");
-        }
+//        Main m = new Main();
+//        if(usuario.getText().equals("sexo") && password.getText().equals("123")){
+//            wrongLogIn.setText("Success");
+//
+//            m.changeScene("/co/edu/uniquindio/javafxtest/afterLogin.fxml");
+//        }
+//
+//        else if(usuario.getText().isEmpty() && password.getText().isEmpty()){
+//            wrongLogIn.setText("Please enter your Data");
+//        }
+//
+//        else{
+//            wrongLogIn.setText("Wrong Username or Password");
+//        }
     }
 
 

@@ -1,10 +1,10 @@
 package co.edu.uniquindio.javafxtest.model;
 
-abstract class Usuario {
-    protected static String nombre;
-    protected static String documento;
-    protected static String email;
-    protected static String telefono;
+public abstract class Usuario {
+    protected String nombre;
+    protected String documento;
+    protected String email;
+    protected String telefono;
 
     public Usuario(String nombre, String documento, String email, String telefono) {
         this.nombre = nombre;
@@ -14,15 +14,13 @@ abstract class Usuario {
     }
 
 
-    public static String getNombre() {
-        return nombre;
-    }
+    public  String getNombre() {return nombre;}
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public static String getDocumento() {
+    public  String getDocumento() {
         return documento;
     }
 
@@ -30,7 +28,7 @@ abstract class Usuario {
         this.documento = documento;
     }
 
-    public static String getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -38,11 +36,12 @@ abstract class Usuario {
         this.email = email;
     }
 
-    public static String getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
 }

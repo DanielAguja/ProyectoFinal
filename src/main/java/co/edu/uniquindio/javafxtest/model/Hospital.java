@@ -94,21 +94,21 @@ public class Hospital {
         return listpacientes;
     }
 
-    public boolean actualizarDatosPaciente(String documentoBuscar,
+    public LinkedList<Paciente> actualizarDatosPaciente(String documentoBuscar,
                                                         String nombre, String documento,
                                                         String email,
                                                         String telefono){
         boolean flag = false;
 
         for(Paciente paciente : listpacientes){
-            if (Paciente.getDocumento().equals(documentoBuscar)){
+            if (paciente.getDocumento().equals(documentoBuscar)){
                 paciente.setNombre(nombre);
                 paciente.setDocumento(documento);
                 paciente.setEmail(email);
                 paciente.setTelefono(telefono);
             }
         }
-        return flag;
+        return listpacientes;
     }
 
     public LinkedList<Administrador> crearAdmin(String nombre, String documento, String email,
@@ -131,7 +131,7 @@ public class Hospital {
         Diagnostico newdiagnostico = new Diagnostico(fecha, observacion, tratamiento);
         diagnostico = newdiagnostico;
         for (Paciente paciente : listpacientes) {
-            if(Paciente.getDocumento().equals(documento)) {
+            if(paciente.getDocumento().equals(documento)) {
                 Paciente.agregarHistorial(diagnostico);
             }
             else {break;}
@@ -142,7 +142,7 @@ public class Hospital {
     public LinkedList<Diagnostico> mostrarHistorial(String documento){
         LinkedList<Diagnostico> chichotas = null;
         for (Paciente paciente : listpacientes) {
-            if(Paciente.getDocumento().equals(documento)) {
+            if(paciente.getDocumento().equals(documento)) {
                 chichotas = Paciente.getHistorial();
             }
         }
@@ -165,7 +165,7 @@ public class Hospital {
         boolean flag = false;
 
         for (Paciente paciente : listpacientes){
-            if (Paciente.getDocumento().equals(idPaciente)) {
+            if (paciente.getDocumento().equals(idPaciente)) {
                 Cita.agregarPaciente(paciente);
                 Paciente.agregarCita(nuevaCita);
             }
@@ -175,7 +175,7 @@ public class Hospital {
         }
 
         for (Medico medico : listmedicos){
-            if (Medico.getNombre().equals(nombreMedico)){
+            if (medico.getNombre().equals(nombreMedico)){
                 Cita.agregarMedico(medico);
             }
             else {
@@ -196,4 +196,44 @@ public class Hospital {
         }
         return flag;
     }
+
+    private LinkedList<Paciente> pacientePrueba(){
+        Paciente paciente = new Paciente("Juan","123","@gmainea","321312321");
+        listpacientes.add(paciente);
+        return listpacientes;
+    }
+
+    private LinkedList<Medico> medicoPrueba(){
+        Medico medico = new Medico("Pablo","122","@gmaineal","3213123211",Especialidades.CARDIOLOGIA);
+        listmedicos.add(medico);
+        return listmedicos;
+    }
+
+    private LinkedList<Administrador> adminPrueba(){
+        Administrador administrador = new Administrador("Pipe","188","@gmainea.net","321311");
+        listadministradores.add(administrador);
+        return listadministradores;
+    }
+
+    public Usuario buscarUsuario(String nombre, String documento) {
+        for (Administrador admin : listadministradores) {
+            if (admin.getNombre().equals(nombre) && admin.getDocumento().equals(documento)) {
+                return admin;
+            }
+        }
+
+        for (Medico medico : listmedicos) {
+            if (medico.getNombre().equals(nombre) && medico.getDocumento().equals(documento)) {
+                return medico;
+            }
+        }
+
+        for (Paciente paciente : listpacientes) {
+            if (paciente.getNombre().equals(nombre) && paciente.getDocumento().equals(documento)) {
+                return paciente;
+            }
+        }
+        return null;
+    }
 }
+
