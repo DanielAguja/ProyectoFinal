@@ -2,6 +2,7 @@ module co.edu.uniquindio.javafxtest {
     requires javafx.controls;
     requires javafx.fxml;
     requires jdk.jshell;
+    requires java.desktop;
 
 
     opens co.edu.uniquindio.javafxtest to javafx.fxml;
