@@ -26,6 +26,8 @@ public class HospitalTest {
 
         LinkedList<Diagnostico> historia = newHospital.mostrarHistorial("12");
 
+        System.out.println((getClass().getResource("/co/edu/uniquindio/javafxtest/hello-view.fxml")));
+
         System.out.println(historia);
 
 

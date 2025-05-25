@@ -10,14 +10,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.javafxtest.controller.LogInController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="282.0" fitWidth="257.0" layoutX="-15.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="282.0" fitWidth="257.0" layoutX="-11.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../../../Downloads/380346118_1405817703316917_5802387050623356728_n.jpg" />
+                  <Image url="@../../../../images/380346118_1405817703316917_5802387050623356728_n.jpg" />
                </image>
             </ImageView>
          </children>
@@ -36,9 +35,10 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <PasswordField layoutX="118.0" layoutY="215.0" promptText="Password" />
-            <TextField layoutX="118.0" layoutY="154.0" promptText="Username" />
-            <Button layoutX="104.0" layoutY="288.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="36.0" prefWidth="68.0" text="Log In" />
+            <PasswordField fx:id="password" layoutX="118.0" layoutY="215.0" promptText="Password" />
+            <TextField fx:id="usuario" layoutX="118.0" layoutY="154.0" promptText="Username" />
+            <Button fx:id="button" layoutX="104.0" layoutY="288.0" mnemonicParsing="false" onAction="#userLogIn" prefHeight="36.0" prefWidth="68.0" text="Log In" />
+            <Label fx:id="wrongLogIn" contentDisplay="CENTER" layoutY="312.0" prefHeight="53.0" prefWidth="296.0" textFill="RED" />
          </children>
       </AnchorPane>
    </right>

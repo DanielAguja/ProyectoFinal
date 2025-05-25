@@ -5,10 +5,10 @@ module co.edu.uniquindio.javafxtest {
     requires java.desktop;
 
 
-    opens co.edu.uniquindio.javafxtest to javafx.fxml;
-    exports co.edu.uniquindio.javafxtest;
     exports co.edu.uniquindio.javafxtest.model;
     opens co.edu.uniquindio.javafxtest.model to javafx.fxml;
     exports co.edu.uniquindio.javafxtest.controller;
     opens co.edu.uniquindio.javafxtest.controller to javafx.fxml;
+    exports co.edu.uniquindio.javafxtest.viewController;
+    opens co.edu.uniquindio.javafxtest.viewController to javafx.fxml;
 }
