@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
@@ -19,6 +20,7 @@
             </SplitMenuButton>
             <Label layoutX="18.0" layoutY="28.0" prefHeight="40.0" prefWidth="286.0" text="Bienvenido al Sistema de Gestión de Administradores" />
             <Label layoutX="104.0" layoutY="82.0" prefHeight="40.0" prefWidth="102.0" text="¿Que desa hacer?" />
+            <Button fx:id="button" layoutX="131.0" layoutY="321.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
          </children>
       </AnchorPane>
    </center>

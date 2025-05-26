@@ -17,7 +17,7 @@ public class HospitalTest {
     public void registroHospitalTest() {
         Hospital newHospital = new Hospital("Ciudad Juarez", "12312312321");
 
-        LinkedList<Paciente> hospitalPaciente = newHospital.crearPaciente("Juan",
+        Paciente hospitalPaciente = newHospital.crearPaciente("Juan",
                 "12", "juan@gmail","651212");
 
         boolean diagnosticoPaciente = newHospital.generarDiagnostico("12",

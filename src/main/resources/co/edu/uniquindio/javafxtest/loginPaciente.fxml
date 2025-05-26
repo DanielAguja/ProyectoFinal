@@ -12,6 +12,6 @@
             <Image url="@../../../../../../../../../../../../Downloads/380346118_1405817703316917_5802387050623356728_n.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="button" layoutX="267.0" layoutY="265.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="60.0" prefWidth="95.0" text="LogOut" />
+      <Button fx:id="button" layoutX="267.0" layoutY="265.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="60.0" prefWidth="95.0" text="Log Out" />
    </children>
 </AnchorPane>

@@ -19,11 +19,7 @@ import java.util.LinkedList;
 
 public class LogInController {
 
-    Hospital hospital = new Hospital("Santander", "12312321");
-
-    LinkedList<Paciente> paciente = hospital.crearPaciente("Juan", "123", "juanitoGod@gmail.com", "123123213");
-    LinkedList<Administrador> admin = hospital.crearAdmin("Pipe", "133", "juanchitofreefire@gmail.com", "12111123");
-
+    private HospitalController hospitalController = AppController.getHospitalController();
 
     public LogInController() {
 
@@ -50,13 +46,12 @@ public class LogInController {
         String nombreIngresado = usuario.getText();
         String documentoIngresado = password.getText();
 
-        // Si los campos están vacíos, manejarlo primero
         if (nombreIngresado.isEmpty() || documentoIngresado.isEmpty()) {
             wrongLogIn.setText("Por favor, ingresa tu Nombre y ID");
             return;
         }
 
-        Usuario usuarioEncontrado = hospital.buscarUsuario(nombreIngresado, documentoIngresado);
+        Usuario usuarioEncontrado = hospitalController.buscarUsuario(nombreIngresado, documentoIngresado);
 
         if (usuarioEncontrado != null) {
             Main m = new Main();

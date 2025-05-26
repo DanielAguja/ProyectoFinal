@@ -3,6 +3,7 @@ package co.edu.uniquindio.javafxtest.controller;
 import co.edu.uniquindio.javafxtest.viewController.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.SplitMenuButton;
 
 import java.io.IOException;
@@ -12,6 +13,9 @@ public class LogInAdministradorController {
     Main m = new Main();
 
     public LogInAdministradorController() {}
+
+    @FXML
+    private Button button;
 
     @FXML
     private SplitMenuButton gestionUsuarios;
@@ -28,10 +32,7 @@ public class LogInAdministradorController {
         m.changeScene("/co/edu/uniquindio/javafxtest/gestionAdministradores.fxml");
     }
 
-
-
-
-
-
-
+    public void logOut(javafx.event.ActionEvent event) throws IOException {
+        m.changeScene("/co/edu/uniquindio/javafxtest/hello-view.fxml");
+    }
 }

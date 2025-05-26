@@ -3,6 +3,7 @@ package co.edu.uniquindio.javafxtest.model;
 import jdk.jshell.Diag;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Hospital {
@@ -87,12 +88,28 @@ public class Hospital {
         this.listadministradores = listadministradores;
     }
 
-    public LinkedList<Paciente> crearPaciente(String nombre, String documento, String email,
-    String telefono) {
+    public Paciente crearPaciente(String nombre, String documento, String email, String telefono) {
+        if (buscarUsuario(null, documento) != null) {
+            System.out.println("Error: Ya existe un usuario con el documento " + documento);
+            return null; //
+        }
         Paciente newpaciente = new Paciente(nombre, documento, email, telefono);
         listpacientes.add(newpaciente);
-        return listpacientes;
+        return newpaciente;
     }
+
+    public boolean eliminarPaciente(String documento){
+        Iterator<Paciente> it = listpacientes.iterator();
+        while (it.hasNext()){
+            Paciente paciente = it.next();
+            if(paciente.getDocumento().equals(documento)){
+                it.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public LinkedList<Paciente> actualizarDatosPaciente(String documentoBuscar,
                                                         String nombre, String documento,
@@ -111,18 +128,48 @@ public class Hospital {
         return listpacientes;
     }
 
-    public LinkedList<Administrador> crearAdmin(String nombre, String documento, String email,
-                                              String telefono) {
+    public Administrador crearAdmin(String nombre, String documento, String email, String telefono) {
+        if (buscarUsuario(null, documento) != null) {
+            System.out.println("Error: Ya existe un usuario con el documento " + documento);
+            return null;
+        }
         Administrador newadmin = new Administrador(nombre, documento, email, telefono);
         listadministradores.add(newadmin);
-        return listadministradores;
+        return newadmin;
     }
 
-    public LinkedList<Medico> crearMedico(String nombre, String documento, String email,
-                                              String telefono, Especialidades especialidad) {
+    public boolean eliminarAdmin(String documento){
+        Iterator<Administrador> it = listadministradores.iterator();
+        while (it.hasNext()){
+            Administrador administrador = it.next();
+            if(administrador.getDocumento().equals(documento)){
+                it.remove();
+                return true;
+            }
+        }
+        return false; // No se encontró el paciente
+    }
+
+    public Medico crearMedico(String nombre, String documento, String email, String telefono, Especialidades especialidad) {
+        if (buscarUsuario(null, documento) != null) {
+            System.out.println("Error: Ya existe un usuario con el documento " + documento);
+            return null;
+        }
         Medico newmedico = new Medico(nombre, documento, email, telefono, especialidad);
         listmedicos.add(newmedico);
-        return listmedicos;
+        return newmedico;
+    }
+
+    public boolean eliminarMedico(String documento){
+        Iterator<Medico> it = listmedicos.iterator();
+        while (it.hasNext()){
+            Medico medico = it.next();
+            if(medico.getDocumento().equals(documento)){
+                it.remove();
+                return true;
+            }
+        }
+        return false; // No se encontró el paciente
     }
 
     public boolean generarDiagnostico(String documento, LocalDate fecha, String observacion, String tratamiento) {
@@ -197,24 +244,6 @@ public class Hospital {
         return flag;
     }
 
-    private LinkedList<Paciente> pacientePrueba(){
-        Paciente paciente = new Paciente("Juan","123","@gmainea","321312321");
-        listpacientes.add(paciente);
-        return listpacientes;
-    }
-
-    private LinkedList<Medico> medicoPrueba(){
-        Medico medico = new Medico("Pablo","122","@gmaineal","3213123211",Especialidades.CARDIOLOGIA);
-        listmedicos.add(medico);
-        return listmedicos;
-    }
-
-    private LinkedList<Administrador> adminPrueba(){
-        Administrador administrador = new Administrador("Pipe","188","@gmainea.net","321311");
-        listadministradores.add(administrador);
-        return listadministradores;
-    }
-
     public Usuario buscarUsuario(String nombre, String documento) {
         for (Administrador admin : listadministradores) {
             if (admin.getNombre().equals(nombre) && admin.getDocumento().equals(documento)) {
@@ -234,6 +263,42 @@ public class Hospital {
             }
         }
         return null;
+    }
+
+    public boolean existeNombrePaciente(String nombre) {
+        for (Paciente p : listpacientes) {
+            if (p.getNombre().equals(nombre)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean existeDocumentoPaciente(String documento) {
+        for (Paciente p : listpacientes) {
+            if (p.getDocumento().equals(documento)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean existeEmailPaciente(String email) {
+        for (Paciente p : listpacientes) {
+            if (p.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean existeTelefonoPaciente(String telefono) {
+        for (Paciente p : listpacientes) {
+            if (p.getTelefono().equals(telefono)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 
