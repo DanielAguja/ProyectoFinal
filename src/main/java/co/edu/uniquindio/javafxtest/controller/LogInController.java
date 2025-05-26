@@ -22,6 +22,8 @@ public class LogInController {
     Hospital hospital = new Hospital("Santander", "12312321");
 
     LinkedList<Paciente> paciente = hospital.crearPaciente("Juan", "123", "juanitoGod@gmail.com", "123123213");
+    LinkedList<Administrador> admin = hospital.crearAdmin("Pipe", "133", "juanchitofreefire@gmail.com", "12111123");
+
 
     public LogInController() {
 
@@ -60,27 +62,16 @@ public class LogInController {
             Main m = new Main();
             wrongLogIn.setText("Inicio de sesión exitoso");
 
-            m.changeScene("/co/edu/uniquindio/javafxtest/afterLogin.fxml");
-
-        } else {
+            if (usuarioEncontrado instanceof Administrador) {
+                m.changeScene("/co/edu/uniquindio/javafxtest/loginAdministrador.fxml");
+            } else if (usuarioEncontrado instanceof Medico) {
+                m.changeScene("/co/edu/uniquindio/javafxtest/loginMedico.fxml");
+            } else if (usuarioEncontrado instanceof Paciente) {
+                m.changeScene("/co/edu/uniquindio/javafxtest/loginPaciente.fxml");
+            }
+        }
+        else {
             wrongLogIn.setText("Nombre de usuario o ID incorrectos");
         }
-
-//        Main m = new Main();
-//        if(usuario.getText().equals("sexo") && password.getText().equals("123")){
-//            wrongLogIn.setText("Success");
-//
-//            m.changeScene("/co/edu/uniquindio/javafxtest/afterLogin.fxml");
-//        }
-//
-//        else if(usuario.getText().isEmpty() && password.getText().isEmpty()){
-//            wrongLogIn.setText("Please enter your Data");
-//        }
-//
-//        else{
-//            wrongLogIn.setText("Wrong Username or Password");
-//        }
     }
-
-
 }

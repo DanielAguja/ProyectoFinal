@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-public class AfterLogInController {
+public class LogInPacienteController {
     @FXML
     private Button button;
 
