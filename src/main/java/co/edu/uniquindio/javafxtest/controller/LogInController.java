@@ -51,6 +51,7 @@ public class LogInController {
             return;
         }
 
+        Administrador administradorEncontrado = hospitalController.buscarAdmin(nombreIngresado, documentoIngresado);
         Usuario usuarioEncontrado = hospitalController.buscarUsuario(nombreIngresado, documentoIngresado);
 
         if (usuarioEncontrado != null) {
@@ -58,6 +59,7 @@ public class LogInController {
             wrongLogIn.setText("Inicio de sesión exitoso");
 
             if (usuarioEncontrado instanceof Administrador) {
+                hospitalController.setAdminLogueado(administradorEncontrado);
                 m.changeScene("/co/edu/uniquindio/javafxtest/loginAdministrador.fxml");
             } else if (usuarioEncontrado instanceof Medico) {
                 m.changeScene("/co/edu/uniquindio/javafxtest/loginMedico.fxml");

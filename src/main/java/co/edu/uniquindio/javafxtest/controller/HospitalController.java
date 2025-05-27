@@ -8,6 +8,7 @@ import java.util.LinkedList;
 
 public class HospitalController {
 
+    private Administrador administradorLogueado;
     private final Hospital hospital;
     private final ObservableList<Paciente> listaPacientes = FXCollections.observableArrayList();
     private final ObservableList<Medico> listaMedicos = FXCollections.observableArrayList();
@@ -31,6 +32,14 @@ public class HospitalController {
         if (pipe != null){
             listaAdministradores.add(pipe);
         }
+    }
+
+    public void setAdminLogueado(Administrador administrador) {
+        this.administradorLogueado = administrador;
+    }
+
+    public Administrador getAdminLogueado() {
+        return administradorLogueado;
     }
 
     public ObservableList<Paciente> getPacientes() {
@@ -250,6 +259,4 @@ public class HospitalController {
             listaAdministradores.add(administrador);
         }
     }
-
-
 }

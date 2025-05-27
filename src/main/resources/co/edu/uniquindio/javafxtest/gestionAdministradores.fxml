@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.javafxtest.controller.GestionPacientesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.javafxtest.controller.GestionAdministradoresController">
    <right>
-      <AnchorPane prefHeight="400.0" prefWidth="439.0" BorderPane.alignment="CENTER">gestionPacientes.fxml
+      <AnchorPane prefHeight="400.0" prefWidth="439.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tablaPacientes" editable="true" layoutX="4.0" layoutY="24.0" prefHeight="353.0" prefWidth="410.0">
+            <TableView fx:id="tablaAdministradores" editable="true" layoutX="4.0" layoutY="24.0" prefHeight="353.0" prefWidth="410.0">
               <columns>
-                <TableColumn fx:id="editNombre" prefWidth="83.0" text="Paciente" />
+                <TableColumn fx:id="editNombre" prefWidth="83.0" text="Administrador" />
                   <TableColumn fx:id="editCedula" text="Cedula" />
                   <TableColumn fx:id="editEmail" prefWidth="124.0" text="E-mail" />
                 <TableColumn fx:id="editTelefono" prefWidth="122.0" text="Teléfono" />
@@ -24,10 +24,10 @@
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="147.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="createButton" layoutX="37.0" layoutY="91.0" mnemonicParsing="false" onAction="#crearPaciente" prefHeight="35.0" prefWidth="73.0" text="Crear..." />
-            <Button fx:id="searchButton" layoutX="37.0" layoutY="155.0" mnemonicParsing="false" onAction="#buscarPaciente" prefHeight="35.0" prefWidth="73.0" text="Buscar..." />
+            <Button fx:id="createButton" layoutX="37.0" layoutY="91.0" mnemonicParsing="false" onAction="#crearAdministrador" prefHeight="35.0" prefWidth="73.0" text="Crear..." />
+            <Button fx:id="searchButton" layoutX="37.0" layoutY="155.0" mnemonicParsing="false" onAction="#buscarAdministrador" prefHeight="35.0" prefWidth="73.0" text="Buscar..." />
             <Button fx:id="backButton" layoutX="37.0" layoutY="313.0" mnemonicParsing="false" onAction="#backLogIn" prefHeight="35.0" prefWidth="73.0" text="Volver" />
-            <Button fx:id="deleteButton" layoutX="37.0" layoutY="220.0" mnemonicParsing="false" onAction="#eliminarPaciente" prefHeight="35.0" prefWidth="73.0" text="Eliminar..." />
+            <Button fx:id="deleteButton" layoutX="37.0" layoutY="220.0" mnemonicParsing="false" onAction="#eliminarAdmin" prefHeight="35.0" prefWidth="73.0" text="Eliminar..." />
          </children>
       </AnchorPane>
    </left>
