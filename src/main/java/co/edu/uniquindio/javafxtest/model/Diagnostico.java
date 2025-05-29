@@ -6,11 +6,13 @@ public class Diagnostico {
 private LocalDate fecha;
 private String observacion;
 private String tratamiento;
+private Medico medico;
 
-public Diagnostico(LocalDate fecha, String observacion, String tratamiento) {
+public Diagnostico(LocalDate fecha, String observacion, String tratamiento, Medico medico) {
     this.fecha = fecha;
     this.observacion = observacion;
     this.tratamiento = tratamiento;
+    this.medico = medico;
 }
 
     @Override
@@ -20,6 +22,14 @@ public Diagnostico(LocalDate fecha, String observacion, String tratamiento) {
                 ", observacion='" + observacion + '\'' +
                 ", tratamiento='" + tratamiento + '\'' +
                 '}';
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
     public LocalDate getFecha() {

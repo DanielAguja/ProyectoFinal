@@ -6,14 +6,11 @@ import java.util.LinkedList;
 
 public class Paciente extends Usuario{
 
-    private static LinkedList<Diagnostico> historialP;
-    private static LinkedList<Cita> citaP;
-
+    private LinkedList<Diagnostico> historialP;
 
     public Paciente(String nombre, String documento, String email, String telefono) {
         super(nombre, documento, email, telefono);
        historialP = new LinkedList<>();
-       citaP = new LinkedList<>();
     }
 
     @Override
@@ -26,20 +23,17 @@ public class Paciente extends Usuario{
                 '}';
     }
 
-    public static LinkedList<Diagnostico> getHistorial() {
+    public LinkedList<Diagnostico> getHistorial() {
         return historialP;
     }
 
-    public static void setHistorial(LinkedList<Diagnostico> historial) {
-        Paciente.historialP = historial;
+    public void setHistorialP(LinkedList<Diagnostico> historialP) {
+        this.historialP = historialP;
     }
 
-    public static void agregarHistorial(Diagnostico diagnostico) {
-        Paciente.historialP.add(diagnostico);
+    public void agregarHistorial(Diagnostico diagnostico) {
+        historialP.add(diagnostico);
     }
 
-    public static void agregarCita(Cita cita){
-        citaP.add(cita);
-    }
 }
 

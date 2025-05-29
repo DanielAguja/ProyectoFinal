@@ -52,6 +52,11 @@ public class LogInController {
         }
 
         Administrador administradorEncontrado = hospitalController.buscarAdmin(nombreIngresado, documentoIngresado);
+
+        Medico medicoEncontrado = hospitalController.buscarMedico(nombreIngresado, documentoIngresado);
+
+        Paciente pacienteEncontrado = hospitalController.buscarPaciente(nombreIngresado, documentoIngresado);
+
         Usuario usuarioEncontrado = hospitalController.buscarUsuario(nombreIngresado, documentoIngresado);
 
         if (usuarioEncontrado != null) {
@@ -62,8 +67,10 @@ public class LogInController {
                 hospitalController.setAdminLogueado(administradorEncontrado);
                 m.changeScene("/co/edu/uniquindio/javafxtest/loginAdministrador.fxml");
             } else if (usuarioEncontrado instanceof Medico) {
+                hospitalController.setMedicoLogueado(medicoEncontrado);
                 m.changeScene("/co/edu/uniquindio/javafxtest/loginMedico.fxml");
             } else if (usuarioEncontrado instanceof Paciente) {
+                hospitalController.setPacienteLogueado(pacienteEncontrado);
                 m.changeScene("/co/edu/uniquindio/javafxtest/loginPaciente.fxml");
             }
         }

@@ -172,14 +172,14 @@ public class Hospital {
         return false; // No se encontró el paciente
     }
 
-    public boolean generarDiagnostico(String documento, LocalDate fecha, String observacion, String tratamiento) {
+    public boolean generarDiagnostico(String documento, LocalDate fecha, String observacion, String tratamiento, Medico medico) {
         boolean flag = false;
         Diagnostico diagnostico = null;
-        Diagnostico newdiagnostico = new Diagnostico(fecha, observacion, tratamiento);
+        Diagnostico newdiagnostico = new Diagnostico(fecha, observacion, tratamiento, medico);
         diagnostico = newdiagnostico;
         for (Paciente paciente : listpacientes) {
             if(paciente.getDocumento().equals(documento)) {
-                Paciente.agregarHistorial(diagnostico);
+                paciente.agregarHistorial(diagnostico);
             }
             else {break;}
         }
@@ -190,7 +190,7 @@ public class Hospital {
         LinkedList<Diagnostico> chichotas = null;
         for (Paciente paciente : listpacientes) {
             if(paciente.getDocumento().equals(documento)) {
-                chichotas = Paciente.getHistorial();
+                chichotas = paciente.getHistorial();
             }
         }
         return chichotas;
@@ -204,34 +204,34 @@ public class Hospital {
         return flag;
     }
 
-    public boolean solicitudCita(String idPaciente, Especialidades especialidad, String nombreMedico,
-                                 int numeroCita, LocalDate fecha, String hora){
-        Cita nuevaCita = new Cita(numeroCita, especialidad , fecha, hora);
-        listCitas.add(nuevaCita);
-
-        boolean flag = false;
-
-        for (Paciente paciente : listpacientes){
-            if (paciente.getDocumento().equals(idPaciente)) {
-                Cita.agregarPaciente(paciente);
-                Paciente.agregarCita(nuevaCita);
-            }
-            else {
-                break;
-            }
-        }
-
-        for (Medico medico : listmedicos){
-            if (medico.getNombre().equals(nombreMedico)){
-                Cita.agregarMedico(medico);
-            }
-            else {
-                break;
-            }
-        }
-
-        return flag;
-    }
+//    public boolean solicitudCita(String idPaciente, Especialidades especialidad, String nombreMedico,
+//                                 int numeroCita, LocalDate fecha, String hora){
+//        Cita nuevaCita = new Cita(numeroCita, especialidad , fecha, hora);
+//        listCitas.add(nuevaCita);
+//
+//        boolean flag = false;
+//
+//        for (Paciente paciente : listpacientes){
+//            if (paciente.getDocumento().equals(idPaciente)) {
+//                Cita.agregarPaciente(paciente);
+//                Paciente.agregarCita(nuevaCita);
+//            }
+//            else {
+//                break;
+//            }
+//        }
+//
+//        for (Medico medico : listmedicos){
+//            if (medico.getNombre().equals(nombreMedico)){
+//                Cita.agregarMedico(medico);
+//            }
+//            else {
+//                break;
+//            }
+//        }
+//
+//        return flag;
+//    }
 
     public boolean cancelarCita(int numeroCita){
         boolean flag = false;

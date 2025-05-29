@@ -9,6 +9,8 @@ import java.util.LinkedList;
 public class HospitalController {
 
     private Administrador administradorLogueado;
+    private Medico medicoLogueado;
+    private Paciente pacienteLogueado;
     private final Hospital hospital;
     private final ObservableList<Paciente> listaPacientes = FXCollections.observableArrayList();
     private final ObservableList<Medico> listaMedicos = FXCollections.observableArrayList();
@@ -28,6 +30,10 @@ public class HospitalController {
         if (ana != null){
             listaMedicos.add(ana);
         }
+        Medico axel = hospital.crearMedico("Axel", "111", "ax@correo.com", "3107676421", Especialidades.PEDIATRIA);
+        if (axel != null) {
+            listaMedicos.add(axel);
+        }
         Administrador pipe = hospital.crearAdmin("Pipe", "133", "julian@correo.com", "3111111111");
         if (pipe != null){
             listaAdministradores.add(pipe);
@@ -40,6 +46,22 @@ public class HospitalController {
 
     public Administrador getAdminLogueado() {
         return administradorLogueado;
+    }
+
+    public void setMedicoLogueado(Medico medico) {
+        this.medicoLogueado = medico;
+    }
+
+    public Medico getMedicoLogueado() {
+        return medicoLogueado;
+    }
+
+    public void setPacienteLogueado(Paciente paciente) {
+        this.pacienteLogueado = paciente;
+    }
+
+    public Paciente getPacienteLogueado() {
+        return pacienteLogueado;
     }
 
     public ObservableList<Paciente> getPacientes() {
