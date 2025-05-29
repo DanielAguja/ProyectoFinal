@@ -38,7 +38,7 @@
             <PasswordField fx:id="password" layoutX="118.0" layoutY="215.0" promptText="Password" />
             <TextField fx:id="usuario" layoutX="118.0" layoutY="154.0" promptText="Username" />
             <Button fx:id="button" layoutX="104.0" layoutY="288.0" mnemonicParsing="false" onAction="#userLogIn" prefHeight="36.0" prefWidth="68.0" text="Log In" />
-            <Label fx:id="wrongLogIn" contentDisplay="CENTER" layoutY="312.0" prefHeight="53.0" prefWidth="296.0" textFill="RED" />
+            <Label fx:id="wrongLogIn" contentDisplay="CENTER" layoutX="129.0" layoutY="334.0" prefHeight="29.0" prefWidth="19.0" textAlignment="CENTER" textFill="RED" />
          </children>
       </AnchorPane>
    </right>

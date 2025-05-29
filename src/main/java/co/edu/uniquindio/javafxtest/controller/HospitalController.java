@@ -4,8 +4,6 @@ import co.edu.uniquindio.javafxtest.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.LinkedList;
-
 public class HospitalController {
 
     private Administrador administradorLogueado;
