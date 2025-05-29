@@ -5,21 +5,26 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.javafxtest.controller.GestionHistorialMedicoController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="162.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="backButton" layoutX="55.0" layoutY="334.0" mnemonicParsing="false" onAction="#volverInicio" text="Volver" />
-            <Button fx:id="searchButton" layoutX="46.0" layoutY="94.0" mnemonicParsing="false" onAction="#asignarPaciente" text="Paciente..." />
-            <Button fx:id="diagnosticButton" layoutX="38.0" layoutY="188.0" mnemonicParsing="false" onAction="#registroDiagnostico" text="Diagnostico..." />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="344.0" layoutY="28.0" stroke="#c3bcbc" strokeType="INSIDE" width="600.0" />
+            <Button fx:id="backButton" layoutX="69.0" layoutY="329.0" mnemonicParsing="false" onAction="#volverInicio" text="Volver" />
+            <Button fx:id="searchButton" layoutX="59.0" layoutY="96.0" mnemonicParsing="false" onAction="#asignarPaciente" text="Paciente..." />
+            <Button fx:id="diagnosticButton" layoutX="50.0" layoutY="206.0" mnemonicParsing="false" onAction="#registroDiagnostico" text="Diagnostico..." />
+            <Text layoutX="14.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asigna un paciente a la tabla..." />
+            <Text layoutX="19.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar un nuevo Diagnostico al Paciente" textAlignment="CENTER" wrappingWidth="148.3359375" />
          </children>
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="400.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="440.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tablaHistorial" layoutX="27.0" layoutY="16.0" prefHeight="370.0" prefWidth="395.0">
+            <TableView fx:id="tablaHistorial" layoutX="-47.0" layoutY="15.0" prefHeight="370.0" prefWidth="395.0">
               <columns>
                   <TableColumn fx:id="pacienteHistorial" prefWidth="75.0">
                      <columns>

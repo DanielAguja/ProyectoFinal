@@ -8,37 +8,52 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.javafxtest.controller.LogInController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="282.0" fitWidth="257.0" layoutX="-11.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="291.0" layoutY="55.0" stroke="WHITE" strokeType="INSIDE" width="600.0" />
+            <ImageView fitHeight="347.0" fitWidth="292.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../images/380346118_1405817703316917_5802387050623356728_n.jpg" />
+                  <Image url="@../../../../images/unnamed.png" />
                </image>
             </ImageView>
+            <Line endX="497.0" layoutX="101.0" layoutY="55.0" startX="-100.0" stroke="#c3bcbc" />
+            <Line endX="500.0" layoutX="101.0" layoutY="346.0" startX="-100.0" stroke="#c3bcbc" />
          </children>
       </AnchorPane>
    </left>
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="293.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="28.0" layoutY="132.0" prefHeight="55.0" prefWidth="76.0" text="Username">
+            <Label layoutX="97.0" layoutY="99.0" prefHeight="55.0" prefWidth="76.0" text="Username">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="200.0" prefHeight="55.0" prefWidth="76.0" text="Password">
+            <Label layoutX="97.0" layoutY="180.0" prefHeight="55.0" prefWidth="76.0" text="Password">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <PasswordField fx:id="password" layoutX="118.0" layoutY="215.0" promptText="Password" />
-            <TextField fx:id="usuario" layoutX="118.0" layoutY="154.0" promptText="Username" />
-            <Button fx:id="button" layoutX="104.0" layoutY="288.0" mnemonicParsing="false" onAction="#userLogIn" prefHeight="36.0" prefWidth="68.0" text="Log In" />
-            <Label fx:id="wrongLogIn" contentDisplay="CENTER" layoutX="129.0" layoutY="334.0" prefHeight="29.0" prefWidth="19.0" textAlignment="CENTER" textFill="RED" />
+            <PasswordField fx:id="password" layoutX="98.0" layoutY="222.0" promptText="Password" />
+            <TextField fx:id="usuario" layoutX="98.0" layoutY="142.0" promptText="Username" />
+            <Button fx:id="button" layoutX="112.0" layoutY="262.0" mnemonicParsing="false" onAction="#userLogIn" prefHeight="30.0" prefWidth="59.0" text="Log In" />
+            <Label fx:id="wrongLogIn" contentDisplay="CENTER" layoutX="91.0" layoutY="306.0" prefHeight="29.0" prefWidth="192.0" textFill="RED" textOverrun="CENTER_ELLIPSIS" />
+            <ImageView fitHeight="70.0" fitWidth="68.0" layoutX="23.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/asdasdassadda.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="34.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/password-148-64.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </right>

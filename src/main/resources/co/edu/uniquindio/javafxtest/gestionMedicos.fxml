@@ -5,11 +5,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.javafxtest.controller.GestionMedicosController">
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="439.0" BorderPane.alignment="CENTER">
          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="331.0" layoutX="-161.0" layoutY="33.0" stroke="#c3bcbc" strokeType="INSIDE" width="600.0" />
             <TableView fx:id="tablaMedicos" editable="true" layoutX="-12.0" layoutY="22.0" prefHeight="353.0" prefWidth="436.0">
               <columns>
                 <TableColumn fx:id="editNombre" prefWidth="83.0" text="Medico" />
