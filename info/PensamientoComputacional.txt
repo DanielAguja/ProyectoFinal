@@ -1,0 +1,15 @@
+-Abstracción
+	-¿Que se solicita?
+		Se necesita un sistema que gestione los datos de Pacientes, 
+		Medicos y Administradores, cada uno con funciones unicas, además de
+		funciones varias, como gestión de citas, salas, etc.
+	-Que es relevante?
+		Las clases que necesitamos, para este caso, Medico, Paciente y Administrador.
+		Las funciones de cada clase
+		Paciente: Actualizar datos y consultar su historial, gestión de citas.
+		Medico: Consultar el Historial de sus pacientes, 
+			registrar observaciones a sus pacientes, consultar horarios.
+		Administrador: Administrar el CRUD de cada clase, gestionar las salas del hospital
+				
+-Descomposición
+

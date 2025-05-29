@@ -20,13 +20,14 @@ public class HospitalTest {
         Paciente hospitalPaciente = newHospital.crearPaciente("Juan",
                 "12", "juan@gmail","651212");
 
+        Medico hospitalMedico = newHospital.crearMedico("Ana",
+                "122", "yuan@gmail","651211232", Especialidades.CARDIOLOGIA);
+
         boolean diagnosticoPaciente = newHospital.generarDiagnostico("12",
                 LocalDate.of(1232, 10, 15),
-                "Le falta crotolamo", "Dosis diaria de uxiono");
+                "Resfriado Común", "Acetaminofen Diaria",hospitalMedico);
 
         LinkedList<Diagnostico> historia = newHospital.mostrarHistorial("12");
-
-        System.out.println((getClass().getResource("/co/edu/uniquindio/javafxtest/hello-view.fxml")));
 
         System.out.println(historia);
 
